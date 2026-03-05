@@ -1,5 +1,6 @@
 test: (0,0) -> (0,3); (0,0) -> (3,0);
 bug: not found
+
 ------------------------------
 Algorithm: bf
 Comparisons: 33

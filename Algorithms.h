@@ -24,6 +24,7 @@ void searchNaive(const ProjectData& data, const std::string& word, std::vector<O
 void searchRK(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
 void searchKMP(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
 void searchBM(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
+void searchAho(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
 
 
 #endif

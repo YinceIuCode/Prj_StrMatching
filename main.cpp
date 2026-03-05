@@ -1,7 +1,7 @@
+#include "Algorithms.h"
 #include <iostream>
 #include <fstream>
 #include <chrono>
-#include "Algorithms.h"
 
 using namespace std;
 
@@ -61,6 +61,9 @@ int main(int argc, char* argv[]) {
         }
         else if (alg == "rk") {
             searchRK(data, word, results, total_comparisons);
+        }
+        else if (alg == "aho") {
+            searchAho(data, word, results, total_comparisons);
         }
         
         if (results.empty()) {

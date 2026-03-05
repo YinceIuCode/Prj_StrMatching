@@ -24,7 +24,7 @@ This project is a command-line application designed to solve the **String Matchi
 ### Compilation
 To build the project, run the following command in your terminal:
 ```bash
-g++ main.cpp Naive.cpp RabinKarp.cpp KMP.cpp BoyerMoore.cpp -std=c++17 -o crossword
+g++ main.cpp Naive.cpp RabinKarp.cpp KMP.cpp BoyerMoore.cpp AhoCorasick.cpp -std=c++17 -o crossword
 ```
 
 ### Usage
@@ -32,7 +32,7 @@ Run the tool using the following command-line flags:
 ```bash
 ./crossword -a [algorithm] -i [input_file] -o [output_file]
 ```
-* **Algorithms(`-a`)**: `bf`, `rk`, `kmp`, `bm`, `ac`.
+* **Algorithms(`-a`)**: `bf`, `rk`, `kmp`, `bm`, `aho`.
 * **Input(`-i`)**: Path to the grid file (e.g., `puzzle.txt`).
 * **Output(`-o`)**: Path to the result file (e.g., `solution.txt`).
 
