@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <string>
-
-using namespace std;
+#include <queue>
+#include <algorithm>
 
 // Cấu trúc lưu tọa độ kết quả
 struct Occurrence {
@@ -20,11 +20,10 @@ struct ProjectData {
 };
 
 // Khai báo các thuật toán hàm
-void searchNaive(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
-void searchRK(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
-void searchKMP(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
-void searchBM(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
-void searchAho(const ProjectData& data, const std::string& word, std::vector<Occurrence>& results, long long& comparisons);
-
+void searchNaive(const ProjectData& data, std::vector<std::vector<Occurrence>>& all_results, long long& comparisons);
+void searchRK(const ProjectData& data, std::vector<std::vector<Occurrence>>& all_results, long long& comparisons);
+void searchKMP(const ProjectData& data, std::vector<std::vector<Occurrence>>& all_results, long long& comparisons);
+void searchBM(const ProjectData& data, std::vector<std::vector<Occurrence>>& all_results, long long& comparisons);
+void searchAho(const ProjectData& data, std::vector<std::vector<Occurrence>>& all_results, long long& comparisons);
 
 #endif

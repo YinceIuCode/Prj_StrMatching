@@ -3,5 +3,5 @@ bug: not found
 
 ------------------------------
 Algorithm: aho
-Comparisons: 68
-Execution Time: 0.0654 ms
+Comparisons: 36
+Execution Time: 0.0111 ms

@@ -37,56 +37,66 @@ int main(int argc, char* argv[]) {
     }
 
     ProjectData data;
-    if (!readInput(input_file, data)) return 1;
+    if (!readInput(input_file, data)) {
+        cerr << "Error: Cannot open input file!" << endl;
+        return 1;
+    }
 
     ofstream out(output_file);
+    if (!out.is_open()) {
+        cerr << "Error: Cannot open output file!" << endl;
+        return 1;
+    }
 
-    // Trong thuật toán có phép so sánh thì thêm dòng total_comparisons++ vào
     long long total_comparisons = 0; 
     
+    // Khởi tạo sẵn mảng 2 chiều lưu kết quả cho K từ khóa
+    vector<vector<Occurrence>> all_results(data.K);
+    
+    // BẮT ĐẦU ĐO THỜI GIAN KHỐI XỬ LÝ LOGIC
     auto start_time = chrono::high_resolution_clock::now();
     
-    for (const string& word : data.keywords) {
-        out << word << ": ";
-        vector<Occurrence> results; 
+    if (alg == "bf") {
+        searchNaive(data, all_results, total_comparisons);
+    }
+    else if (alg == "kmp") {
+        searchKMP(data, all_results, total_comparisons);
+    }
+    else if (alg == "bm") {
+        searchBM(data, all_results, total_comparisons);
+    }
+    else if (alg == "rk") {
+        searchRK(data, all_results, total_comparisons);
+    }
+    else if (alg == "aho") {
+        searchAho(data, all_results, total_comparisons);
+    }
+    
+    // KẾT THÚC ĐO THỜI GIAN
+    auto end_time = chrono::high_resolution_clock::now();
+    chrono::duration<double, std::milli> duration = end_time - start_time;
+
+    // IN KẾT QUẢ RA FILE (Phần này không tính vào thời gian thực thi thuật toán)
+    for (int i = 0; i < data.K; ++i) {
+        out << data.keywords[i] << ": ";
         
-        if (alg == "bf") {
-            searchNaive(data, word, results, total_comparisons);
-        }
-        else if (alg == "kmp") {
-            searchKMP(data, word, results, total_comparisons);
-        }
-        else if (alg == "bm") {
-            searchBM(data, word, results, total_comparisons);
-        }
-        else if (alg == "rk") {
-            searchRK(data, word, results, total_comparisons);
-        }
-        else if (alg == "aho") {
-            searchAho(data, word, results, total_comparisons);
-        }
-        
-        if (results.empty()) {
+        if (all_results[i].empty()) {
             out << "not found" << endl;
         } else {
-            for (size_t i = 0; i < results.size(); ++i) {
-                out << "(" << results[i].r_start << "," << results[i].c_start << ") -> "
-                    << "(" << results[i].r_end << "," << results[i].c_end << ")";
-                if (i < results.size() - 1) out << "; ";
+            for (size_t j = 0; j < all_results[i].size(); ++j) {
+                out << "(" << all_results[i][j].r_start << "," << all_results[i][j].c_start << ") -> "
+                    << "(" << all_results[i][j].r_end << "," << all_results[i][j].c_end << ")";
+                if (j < all_results[i].size() - 1) out << "; ";
             }
             out << ";" << endl;
         }
     }
-    // ---------------------------------------------------
-
-    auto end_time = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time);
 
     // In thông số Performance
     out << "\n------------------------------\n";
     out << "Algorithm: " << alg << endl;
     out << "Comparisons: " << total_comparisons << endl;
-    out << "Execution Time: " << (double)duration.count() << " ms" << endl;
+    out << "Execution Time: " << duration.count() << " ms" << endl;
 
     return 0;
 }
