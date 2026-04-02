@@ -100,6 +100,6 @@ pixel: (103,98) -> (103,102);
 hcmus: (164,140) -> (164,144); (134,223) -> (138,223); (9,350) -> (13,350);
 
 ------------------------------
-Algorithm: aho
-Comparisons: 901068
-Execution Time: 7.2329 ms
+Algorithm: bm
+Comparisons: 11621829
+Execution Time: 166.454 ms

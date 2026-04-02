@@ -17,11 +17,32 @@ EXECUTABLE = "crossword.exe" if os.name == "nt" else "./crossword"
 INPUT_FILE = "puzzle.txt"
 OUTPUT_DIR = "outputs"
 
-AUTO_GENERATE_INPUT = True
-GRID_ROWS = 100
-GRID_COLS = 100
+AUTO_GENERATE_INPUT = False
+GRID_ROWS = 500
+GRID_COLS = 500
 
-KEYWORDS = ["key", "bug", "world"]
+KEYWORDS = [
+    "algorithm", "array", "binary", "boolean", "byte", 
+    "cache", "class", "code", "compile", "data", 
+    "debug", "double", "edge", "error", "exception", 
+    "false", "float", "function", "graph", "hash", 
+    "heap", "index", "input", "integer", "leaf", 
+    "list", "logic", "loop", "map", "memory", 
+    "method", "mutex", "network", "node", "null", 
+    "object", "output", "pointer", "private", "process", 
+    "public", "query", "queue", "read", "reference", 
+    "return", "root", "run", "search", "server", 
+    "set", "socket", "sort", "stack", "static", 
+    "string", "struct", "switch", "system", "table", 
+    "test", "thread", "tree", "true", "type", 
+    "variable", "vector", "virtual", "void", "while", 
+    "write", "aho", "corasick", "boyer", "moore", 
+    "rabin", "karp", "kmp", "naive", "brute", 
+    "force", "match", "pattern", "text", "grid", 
+    "matrix", "row", "column", "cell", "cpu", 
+    "ram", "disk", "file", "bits", "bytes", 
+    "mega", "giga", "tera", "pixel", "hcmus"
+]
 
 PLANT_KEYWORDS = True
 
