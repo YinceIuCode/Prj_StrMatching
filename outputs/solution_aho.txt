@@ -1,7 +1,8 @@
-test: (0,0) -> (0,3); (0,0) -> (3,0);
-bug: not found
+key: (66,46) -> (66,48); (64,84) -> (66,84);
+bug: (4,9) -> (6,9);
+world: (28,33) -> (28,37);
 
 ------------------------------
 Algorithm: aho
-Comparisons: 36
-Execution Time: 0.0111 ms
+Comparisons: 22128
+Execution Time: 0.8228 ms

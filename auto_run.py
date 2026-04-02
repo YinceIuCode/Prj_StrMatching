@@ -1,11 +1,9 @@
 import subprocess
 import os
-import time
 import re
-
-EXECUTABLE = "crossword.exe" if os.name == "nt" else "./crossword"
-INPUT_FILE = "puzzle.txt"
-OUTPUT_DIR = "outputs"
+import time
+import random
+import string
 
 ALG_CONFIG = {
     "bf":  {"file": "Naive.cpp",             "func": "searchNaive"},
@@ -14,6 +12,53 @@ ALG_CONFIG = {
     "rk":  {"file": "RabinKarp.cpp",         "func": "searchRK"},
     "aho": {"file": "AhoCorasickFull.cpp",   "func": "searchAho"}
 }
+
+EXECUTABLE = "crossword.exe" if os.name == "nt" else "./crossword"
+INPUT_FILE = "puzzle.txt"
+OUTPUT_DIR = "outputs"
+
+AUTO_GENERATE_INPUT = True
+GRID_ROWS = 100
+GRID_COLS = 100
+
+KEYWORDS = ["key", "bug", "world"]
+
+PLANT_KEYWORDS = True
+
+def generate_random_puzzle():
+	print(f"🎲 Đang tạo file {INPUT_FILE} ({GRID_ROWS}x{GRID_COLS}) với {len(KEYWORDS)} keywords...")
+	grid = [[random.choice(string.ascii_lowercase) for _ in range(GRID_COLS)] for _ in range(GRID_ROWS)]
+
+	if PLANT_KEYWORDS:
+		for word in KEYWORDS:
+			if len(word) > min(GRID_COLS, GRID_ROWS): continue
+
+			occurrences = random.randint(0, 3)
+			for _ in range (occurrences):
+				direction = random.choice(["horizontal", "vertical"])
+				word_len = len(word)
+
+				if direction == "horizontal" and GRID_COLS >= word_len:
+					r = random.randint(0, GRID_ROWS - 1)
+					c = random.randint(0, GRID_COLS - word_len)
+					for i in range(word_len): grid[r][c + i] = word[i]
+				elif direction == "vertical" and GRID_ROWS >= word_len:
+					r = random.randint(0, GRID_ROWS - word_len)
+					c = random.randint(0, GRID_COLS - 1)
+					for i in range(word_len): grid[r + i][c] = word[i] 
+
+	with open(INPUT_FILE, 'w', encoding = 'utf-8') as f:
+		f.write(f"{GRID_ROWS} {GRID_COLS}\n")
+
+		for row in grid:
+			f.write(" ".join(row) + "\n")
+
+		f.write(f"{len(KEYWORDS)}\n")
+
+		for word in KEYWORDS:
+			f.write(word + "\n")
+
+	print("   ↳ Tạo file thành công!\n")
 
 def is_implemented(alg):
 	config = ALG_CONFIG.get(alg)
@@ -105,5 +150,8 @@ def run_tests():
 	print("🎉 TẤT CẢ TEST CASE ĐÃ CHẠY XONG!")
 
 if __name__ == "__main__":
+	if AUTO_GENERATE_INPUT:
+		generate_random_puzzle()
+
 	if compile_cpp():
 		run_tests()

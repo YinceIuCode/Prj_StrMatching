@@ -50,3 +50,9 @@ void searchThuatToanCuaBan(const ProjectData& data, std::vector<std::vector<Occu
 }
 ```
 ***Lưu ý: Mọi người code có thể theo template hoặc không, miễn xuất ra đúng kết quả là được***
+
+## ⚠️ 3 ĐIỀU CẤM KỴ:
+
+1. **KHÔNG** dùng `cout` hay `cin` trong hàm này (I/O là việc của hàm main).
+2. **KHÔNG** ghi đè hay làm rỗng (`clear()`) biến `all_results` ở đầu hàm, vì `main` đã thiết lập sẵn kích thước chuẩn cho nó rồi.
+3. **KHÔNG** tự ý đổi tên biến trong tham số của hàm để lúc gộp code không bị lỗi.
