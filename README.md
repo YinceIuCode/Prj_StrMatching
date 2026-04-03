@@ -25,7 +25,7 @@ This project is a command-line application designed to solve the **String Matchi
 ### Compilation
 To build the project, run the following command in your terminal:
 ```bash
-g++ main.cpp Naive.cpp RabinKarp.cpp KMP.cpp BoyerMoore.cpp AhoCorasick.cpp -std=c++17 -o crossword
+g++ main.cpp Naive.cpp RabinKarp.cpp KMP.cpp BoyerMoore.cpp AhoCorasick.cpp -o crossword -std=c++17
 ```
 
 ## 🛠️ Method 1: Manual Execution (C++ CLI)
