@@ -64,6 +64,7 @@ python scripts/plot_charts.py
 *The generated charts (`.png`) will be saved in the `reports/` folder.*
 
 ## 📂 Directory Structure
+After use tool python
 ```text
 Group02/
 ├── inputs/             # Auto-generated test cases (puzzle files)
