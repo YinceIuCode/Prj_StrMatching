@@ -34,7 +34,7 @@ g++ src/main.cpp src/BruteForce.cpp src/RabinKarp.cpp src/KMP.cpp src/BoyerMoore
 **2. Usage**
 Run the tool using the following command-line flags:
 ```bash
-./crossword -a [algorithm] -i [input_file] -o [output_file]
+crossword -a [algorithm] -i [input_file] -o [output_file]
 ```
 * **Algorithms(`-a`)**: `bf`, `rk`, `kmp`, `bm`, `aho`.
 * **Input(`-i`)**: Path to the grid file (e.g., `inputs/puzzle.txt`).
