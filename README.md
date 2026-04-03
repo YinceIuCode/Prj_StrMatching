@@ -22,12 +22,6 @@ This project is a command-line application designed to solve the **String Matchi
 * **Python Environment** *(For Automated Tools)*: Python 3.x installed.
 * **Python Libraries** *(For Plotting)*: `pip install matplotlib`
 
-### Compilation
-To build the project, run the following command in your terminal:
-```bash
-g++ main.cpp Naive.cpp RabinKarp.cpp KMP.cpp BoyerMoore.cpp AhoCorasick.cpp -o crossword -std=c++17
-```
-
 ## 🛠️ Method 1: Manual Execution (C++ CLI)
 Use this method if you want to manually test a specific puzzle file with a specific algorithm.
 
