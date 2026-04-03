@@ -43,15 +43,13 @@ void searchKMP(const ProjectData &data, std::vector<std::vector<Occurrence>> &al
             int j = 0;
             for (int i = 0; i < (int)text.size(); ++i)
             {
-                while (j > 0 && pattern[j] != text[i])
+                while (j > 0 && pattern[j] != text[i]){
                     j = LPS[j - 1];
-                ++comparisons;
-
-                if (pattern[j] == text[i])
-                {
-                    ++j;
-                    ++comparisons;
+                    comparisons++;
                 }
+                    comparisons++;
+                if (pattern[j] == text[i])
+                    ++j;
 
                 if (j == (int)pattern.size())
                 {
@@ -81,15 +79,13 @@ void searchKMP(const ProjectData &data, std::vector<std::vector<Occurrence>> &al
             int j = 0;
             for (int i = 0; i < (int)text.size(); ++i)
             {
-                while (j > 0 && pattern[j] != text[i])
+                while (j > 0 && pattern[j] != text[i]){
                     j = LPS[j - 1];
-                ++comparisons;
-
-                if (pattern[j] == text[i])
-                {
-                    ++j;
                     ++comparisons;
                 }
+                ++comparisons;
+                if (pattern[j] == text[i])
+                    ++j;
 
                 if (j == (int)pattern.size())
                 {
