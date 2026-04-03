@@ -37,8 +37,8 @@ Run the tool using the following command-line flags:
 crossword -a [algorithm] -i [input_file] -o [output_file]
 ```
 * **Algorithms(`-a`)**: `bf`, `rk`, `kmp`, `bm`, `aho`.
-* **Input(`-i`)**: Path to the grid file (e.g., `inputs/puzzle.txt`).
-* **Output(`-o`)**: Path to the result file (e.g., `outputs/solution.txt`).
+* **Input(`-i`)**: Path to the grid file, create file first after run (e.g., `puzzle.txt`).
+* **Output(`-o`)**: Path to the result file (e.g., `solution.txt`).
 
 ## 🤖 Method 2: Automated Benchmarking Tool (Python)
 Use this method to automatically generate massive test cases, run all algorithms, and generate performance charts. **You do NOT need to compile the C++ code manually; the script handles it.**
