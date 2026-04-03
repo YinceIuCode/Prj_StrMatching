@@ -1,4 +1,14 @@
+inputs/
+outputs/
+reports/
+
 *.exe
-*.obj
-*.o
+crossword
+*.out
+
+english_words.txt
+
 readme.txt
+
+__pycache__/
+*.pyc
